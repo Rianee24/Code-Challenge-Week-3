@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "THE FLASH",
+      "content": "Barry Allen",
+      "author": "Grant Gustin",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREMnPEuElNQoMjozCDy0fXWeK_L5DIhTYUTA&s"
+    },
+    {
+      "id": "2",
+      "title": "THE GREEN ARROW",
+      "content": "Oliver Queen",
+      "author": "Stephen Amell",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKmeoK999cb9IVC6AKWhrslbX_SEpkl5DtHw&s"
+    },
+    {
+      "id": "3",
+      "title": "SUPERGIRL",
+      "content": "Kara Danvers",
+      "author": "Mellisa Benoit",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-B_YHtotGzux7GdpIuM9gqU2Hq4hWWgACUQ&s"
+    },
+    {
+      "id": "4",
+      "title": "DC LEGENDS OF TOMORROW",
+      "content": "Legends",
+      "author": "Wentworth Miller",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQERC7xh08x0dBlx5PpYZNJ1AnHTQ6b0byC5w&s"
+    }
+  ]
+}

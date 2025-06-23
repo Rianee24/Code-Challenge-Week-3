@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrowverse Blog</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Arrowverse Blog</h1>
+  <div id="container">
+    <div id="post-list"></div>
+    <div id="post-detail"></div>
+  </div>
+
+  <form id="new-post-form">
+    <input type="text" id="new-title" placeholder="Title" required>
+    <textarea id="new-content" placeholder="Content" required></textarea>
+    <input type="text" id="new-author" placeholder="Author" required>
+    <input type="text" id="new-image" placeholder="Image URL" required>
+    <button type="submit">Add Post</button>
+  </form>
+
+  <!-- Edit Form (hidden by default) -->
+  <form id="edit-post-form" class="hidden">
+    <h4>Update Post Details</h4>
+    <label for="edit-title">Title:</label>
+    <input type="text" id="edit-title">
+    <label for="edit-content">Content:</label>
+    <textarea id="edit-content" rows="5"></textarea>
+    <button type="submit">Update Post</button>
+    <button type="button" id="cancel-edit">Cancel</button>
+  </form>
+
+  <script src="src/index.js"></script>
+</body>
+</html>
+<script>
+  // Simple JavaScript to handle form submission and post management
+  document.addEventListener('DOMContentLoaded', () => {
+    const postList = document.getElementById('post-list');
+    const postDetail = document.getElementById('post-detail');
+    const newPostForm = document.getElementById('new-post-form');
+    const editPostForm = document.getElementById('edit-post-form');
+    const cancelEditButton = document.getElementById('cancel-edit');
+
+    let posts = [];
+    let currentEditIndex = null;
+
+    function renderPosts() {
+      postList.innerHTML = '';
+      posts.forEach((post, index) => {
+        const postItem = document.createElement('div');
+        postItem.className = 'post-item';
+        postItem.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.content}</p>
+          <p><strong>Author:</strong> ${post.author}</p>
+          <button onclick="viewPost(${index})">View</button>
+          <button onclick="editPost(${index})">Edit</button>
+          <button onclick="deletePost(${index})">Delete</button>
+        `;
+        postList.appendChild(postItem);
+      });
+    }
+
+    window.viewPost = function(index) {
+      const post = posts[index];
+      postDetail.innerHTML = `
+        <h2>${post.title}</h2>
+        <p>${post.content}</p>
+        <p><strong>Author:</strong> ${post.author}</p>
+      `;
+    };
+
+    window.editPost = function(index) {
+      currentEditIndex = index;
+      const post = posts[index];
+      document.getElementById('edit-title').value = post.title;
+      document.getElementById('edit-content').value = post.content;
+      editPostForm.classList.remove('hidden');
+      newPostForm.classList.add('hidden');
+    }});
