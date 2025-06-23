@@ -23,7 +23,7 @@ function displayPosts() {
       });
 
       if (posts.length > 0) {
-        handlePostClick(posts[0].id); // Load first post details on page load
+        handlePostClick(posts[0].id); 
       }
     });
 }
@@ -46,7 +46,6 @@ function handlePostClick(postId) {
       setupEditForm(post);
       setupDelete(post.id);
 
-      // ✅ Handle minimize
       document.getElementById('minimize-button').addEventListener('click', () => {
         document.getElementById('post-detail').innerHTML = '<p>Post hidden. Click a title to view again.</p>';
       });
@@ -73,7 +72,7 @@ function addNewPostListener() {
     })
     .then(res => res.json())
     .then(post => {
-      displayPosts(); // refresh list
+      displayPosts(); 
       form.reset();
     });
   });
